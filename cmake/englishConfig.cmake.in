@@ -1,0 +1,47 @@
+# englishConfig.cmake
+# -------------------
+#
+# english cmake module.
+# This module sets the following variables in your project:
+#
+# ::
+#
+#   english_FOUND - true if english found on the system
+#   english_VERSION - english version in format Major.Minor.Release
+#
+#
+# Exported targets:
+#
+# ::
+#
+# If english is found, this module defines the following :prop_tgt:`IMPORTED`
+# targets. ::
+#   english::english-shared - the main english shared library with header & defs attached.
+#   english::english-static - the main english static library with header & defs attached.
+#
+# Suggested usage:
+#
+# ::
+#
+#   find_package(english)
+#   find_package(english 1.1.7 CONFIG REQUIRED)
+#
+#
+# The following variables can be set to guide the search for this package:
+#
+# ::
+#
+#   english_DIR - CMake variable, set to directory containing this Config file
+#   CMAKE_PREFIX_PATH - CMake variable, set to root directory of this package
+#   PATH - environment variable, set to bin directory of this package
+#   CMAKE_DISABLE_FIND_PACKAGE_english - CMake variable, disables
+#       find_package(english) perhaps to force internal build
+
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/englishTargets.cmake")
+check_required_components(
+  "english-shared"
+  "english-static"
+  )
+
