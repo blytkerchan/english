@@ -21,11 +21,11 @@ endif()
 
 set(ENGLISH_SOURCES
 	${CMAKE_CURRENT_LIST_DIR}/details/extractor.cpp
-	${CMAKE_CURRENT_LIST_DIR}/poet.cpp
+	${CMAKE_CURRENT_LIST_DIR}/poem.cpp
 	)
 set(ENGLISH_HEADERS
 	${CMAKE_CURRENT_LIST_DIR}/details/extractor.hpp
-	${CMAKE_CURRENT_LIST_DIR}/poet.hpp
+	${CMAKE_CURRENT_LIST_DIR}/poem.hpp
 	${CMAKE_CURRENT_LIST_DIR}/words/adjectives.hpp
 	${CMAKE_CURRENT_LIST_DIR}/words/adverbs.hpp
 	${CMAKE_CURRENT_LIST_DIR}/words/articles.hpp
@@ -92,12 +92,22 @@ set_target_properties(english-static
 	PUBLIC_HEADER "${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}/english-export.h;${ENGLISH_HEADERS}"
 	)
 
+# executable
+add_executable(poet poet.cpp)
+target_include_directories(poet
+	PUBLIC
+	$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}>
+	$<INSTALL_INTERFACE:${INSTALL_INCLUDEDIR}>
+	)
+target_link_libraries(poet english-shared)
+
 # <<< Install and export targets >>>
 
 install(
 	TARGETS
 	english-shared
 	english-static
+	poet
 	EXPORT
 	englishTargets
 	ARCHIVE
