@@ -2,7 +2,7 @@
 # to pkg_search_module
 cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
-project(exceptions
+project(english
   LANGUAGES CXX
   VERSION 1.1.0
   )

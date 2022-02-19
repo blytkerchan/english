@@ -1,10 +1,10 @@
-# Installing `exceptions`
+# Installing `english`
 
 The library uses CMake as its build system. The minimum required version is
 CMake 3.8
 You can configure with:
 ```
-cmake -H. -Bbuild -DCMAKE_INSTALL_PREFIX=/path/to/install/exceptions
+cmake -H. -Bbuild -DCMAKE_INSTALL_PREFIX=/path/to/install/english
 ```
 and build and install with:
 ```
